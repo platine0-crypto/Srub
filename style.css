@@ -1,50 +1,29 @@
 /* Custom styles for NORD-LINE landing page */
 
-/* Shimmer Button Animation */
+/* Shimmer animation that triggers every 5 seconds */
 .shimmer-button {
   position: relative;
   overflow: hidden;
 }
 
-.shimmer-button::before {
+.shimmer-button::after {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shimmer 5s infinite;
+  pointer-events: none;
 }
 
-.shimmer-button:hover::before {
-  left: 100%;
-  transition: left 0.5s;
-}
-
-/* Shimmer animation that triggers every 5 seconds */
 @keyframes shimmer {
   0% {
     left: -100%;
   }
   100% {
     left: 100%;
-  }
-}
-
-.shimmer-button {
-  animation: shimmer-pass 5s infinite;
-}
-
-@keyframes shimmer-pass {
-  0%, 90% {
-    left: -100%;
-  }
-  95% {
-    left: 100%;
-  }
-  100% {
-    left: -100%;
   }
 }
 
