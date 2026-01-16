@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('images/hero/bg-hero-desktop.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                background-image: url('images/hero/bg-hero-mobile.webp');
+            }
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Добро пожаловать</h1>
+            <p>Главный экран с героем</p>
+        </div>
+    </section>
+</body>
+</html>
