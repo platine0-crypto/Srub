@@ -1,326 +1,97 @@
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NORD-LINE | Дома и бани из клееного бруса бизнес-класса</title>
-    
-    <!-- Tailwind CSS via CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>NORD-LINE | Заводские резиденции бизнес-класса</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom styles -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+      :root {
+        /* Значения по умолчанию */
+        --visual-correction-mobile: 0.75;
+        --mobile-design-width: 375;
+        --desktop-design-width: 1920;
+        --base-font-size: 16;
+
+        /* ДТ формула: ЧИСТАЯ (БЕЗ visual-correction), чтобы не уменьшать контейнеры */
+        font-size: calc(100vw / var(--desktop-design-width) * var(--base-font-size));
+      }
+
+      @media (max-width: 768px) {
         :root {
-            --primary-dark: #0B1221;
-            --accent-bronze: #C5A059;
-            --accent-terracotta: #B35B3E;
+          /* Моб формула: с учетом коррекции для плотности мобильных экранов */
+          font-size: calc(100vw / var(--mobile-design-width) * var(--base-font-size) * var(--visual-correction-mobile));
         }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--primary-dark);
-            color: white;
-            overflow-x: hidden;
-        }
-        
-        .bg-hero-desktop {
-            background-image: url('./images/hero/bg-hero-desktop.webp');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .bg-hero-mobile {
-            background-image: url('./images/hero/bg-hero-mobile.webp');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .shimmer-btn {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .shimmer-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                transparent 100%
-            );
-            transform: rotate(25deg);
-            transition: all 0.8s;
-        }
-        
-        .shimmer-btn:hover::after {
-            left: 120%;
-        }
-        
-        .glass-bar {
-            backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        .sticky-header {
-            transition: all 0.3s ease;
-        }
-        
-        .sticky-header.scrolled {
-            background-color: var(--primary-dark);
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-        
-        .sticky-header.scrolled .logo-text {
-            font-size: 1.2rem;
-        }
-        
-        .floating-dock {
-            position: fixed;
-            bottom: 1rem;
-            left: 1rem;
-            right: 1rem;
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        
-        .floating-dock.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .dock-divider {
-            height: 50%;
-            width: 0.5px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .pulse-arrow {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        
-        .mobile-overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
-        }
+      }
+
+      * { 
+        font-family: 'Montserrat', sans-serif !important; 
+        box-sizing: border-box;
+      }
+      
+      body {
+        background-color: #0B1221;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        text-size-adjust: none;
+      }
+
+      .gold-gradient {
+          background: linear-gradient(90deg, 
+              #8B6914 0%, 
+              #F9E076 25%, 
+              #D4AF37 40%, 
+              #FFFFFF 50%, 
+              #B8860B 70%, 
+              #8B6914 98%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .nav-link { position: relative; }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -0.25rem;
+        left: 0;
+        width: 0;
+        height: 0.0625rem;
+        background: #C5A059;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after { width: 100%; }
+
+      ::-webkit-scrollbar { width: 0.375rem; }
+      ::-webkit-scrollbar-track { background: #0B1221; }
+      ::-webkit-scrollbar-thumb {
+        background: #C5A059;
+        border-radius: 0.1875rem;
+      }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "url": "https://esm.sh/url@^0.11.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body class="relative">
-    <!-- Header -->
-    <header id="header" class="sticky-header fixed top-0 w-full z-50 py-4 px-6 flex justify-between items-center">
-        <!-- Left: Logo -->
-        <div class="flex items-center space-x-2">
-            <img src="./images/icons/logo.svg" alt="NORD-LINE" class="w-8 h-8 invert">
-            <div>
-                <div class="logo-text font-bold text-white text-lg">NORD-LINE</div>
-                <div class="text-xs text-gray-300">от СК Срубы для всех</div>
-            </div>
-        </div>
-        
-        <!-- Center: Navigation (Desktop) -->
-        <nav class="hidden md:flex space-x-8">
-            <a href="#" class="text-white hover:text-[var(--accent-bronze)] transition-colors">SPA-Резиденции</a>
-            <a href="#" class="text-white hover:text-[var(--accent-bronze)] transition-colors">Усадьбы</a>
-            <a href="#" class="text-white hover:text-[var(--accent-bronze)] transition-colors">Технологии</a>
-            <a href="#" class="text-white hover:text-[var(--accent-bronze)] transition-colors">Способы приобретения</a>
-            <a href="#" class="text-white hover:text-[var(--accent-bronze)] transition-colors">Контакты</a>
-        </nav>
-        
-        <!-- Right: Contacts -->
-        <div class="flex items-center space-x-6">
-            <a href="tel:+73452288199" class="text-white hover:text-[var(--accent-bronze)] hidden md:block">+7 (3452) 288-199</a>
-            <a href="#" class="text-white hover:text-[var(--accent-bronze)]">
-                <img src="./images/icons/icon-telegram.svg" alt="Telegram" class="w-6 h-6 invert">
-            </a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Desktop Background -->
-        <div class="bg-hero-desktop w-full h-full absolute inset-0 hidden md:block"></div>
-        
-        <!-- Mobile Background -->
-        <div class="bg-hero-mobile w-full h-full absolute inset-0 md:hidden mobile-overlay"></div>
-        
-        <!-- Mobile Overlay Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[var(--primary-dark)]/30 to-[var(--primary-dark)]/70 md:hidden"></div>
-        
-        <!-- Content Container -->
-        <div class="container mx-auto px-4 md:px-8 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Main Headline -->
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-                    Дома и бани из клееного бруса <span class="text-[var(--accent-bronze)]">БИЗНЕС-КЛАССА</span>
-                </h1>
-                
-                <!-- Subtitle -->
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                    Под ключ в Тюменской области с гарантией качества и фиксированной ценой
-                </p>
-                
-                <!-- CTA Button -->
-                <button id="testDriveBtn" class="shimmer-btn bg-[var(--accent-terracotta)] hover:bg-opacity-90 text-white font-bold py-4 px-8 rounded-lg text-lg md:text-xl transition-all duration-300 transform hover:scale-105 mb-12">
-                    Тест-драйв объектов
-                </button>
-                
-                <!-- Trigger Icons (Desktop) -->
-                <div class="hidden md:flex justify-center space-x-12 mb-16">
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 flex items-center justify-center mb-2">
-                            <img src="./images/icons/icon-mobile.svg" alt="Звонок" class="w-8 h-8 invert">
-                        </div>
-                        <span class="text-sm">Звонок</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 flex items-center justify-center mb-2">
-                            <img src="./images/icons/icon-telegram.svg" alt="Telegram" class="w-8 h-8 invert">
-                        </div>
-                        <span class="text-sm">Telegram</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 flex items-center justify-center mb-2">
-                            <img src="./images/icons/icon-calendar.svg" alt="Записаться" class="w-8 h-8 invert">
-                        </div>
-                        <span class="text-sm">Записаться</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Down Arrow for Navigation -->
-        <div class="pulse-arrow absolute bottom-8 left-1/2 transform -translate-x-1/2 text-3xl animate-pulse">
-            ↓
-        </div>
-    </section>
-
-    <!-- Floating Dock (Mobile) -->
-    <div id="floatingDock" class="floating-dock glass-bar">
-        <div class="flex divide-x divide-white/10">
-            <div class="flex-1 flex flex-col items-center justify-center p-3">
-                <img src="./images/icons/icon-mobile.svg" alt="Звонок" class="w-6 h-6 mb-1">
-                <span class="text-xs text-white/70 uppercase tracking-wide">Звонок</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center justify-center p-3">
-                <img src="./images/icons/icon-telegram.svg" alt="Telegram" class="w-6 h-6 mb-1">
-                <span class="text-xs text-white/70 uppercase tracking-wide">Telegram</span>
-            </div>
-            <div class="flex-1 flex flex-col items-center justify-center p-3">
-                <img src="./images/icons/icon-calendar.svg" alt="Записаться" class="w-6 h-6 mb-1">
-                <span class="text-xs text-white/70 uppercase tracking-wide">Записаться</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Test Drive Popup -->
-    <div id="testDrivePopup" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4">
-        <div class="bg-[var(--primary-dark)] border border-gray-700 rounded-xl p-6 max-w-md w-full relative">
-            <button id="closePopup" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                ✕
-            </button>
-            
-            <h3 class="text-2xl font-bold mb-6 text-center">Запись на закрытый показ</h3>
-            
-            <form id="testDriveForm">
-                <div class="mb-4">
-                    <input type="text" placeholder="Ваше имя" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-bronze)]" required>
-                </div>
-                
-                <div class="mb-4">
-                    <input type="tel" placeholder="Телефон" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-bronze)]" required>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="font-medium mb-3">Способ связи:</h4>
-                    <div class="space-y-2">
-                        <label class="flex items-center space-x-3">
-                            <input type="radio" name="contactMethod" value="call" class="text-[var(--accent-bronze)] focus:ring-[var(--accent-bronze)]" checked>
-                            <span>Позвонить мне</span>
-                        </label>
-                        <label class="flex items-center space-x-3">
-                            <input type="radio" name="contactMethod" value="whatsapp" class="text-[var(--accent-bronze)] focus:ring-[var(--accent-bronze)]">
-                            <span>Написать в WhatsApp</span>
-                        </label>
-                        <label class="flex items-center space-x-3">
-                            <input type="radio" name="contactMethod" value="telegram" class="text-[var(--accent-bronze)] focus:ring-[var(--accent-bronze)]">
-                            <span>Написать в Telegram</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="w-full shimmer-btn bg-[var(--accent-terracotta)] hover:bg-opacity-90 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300">
-                    ПОДТВЕРДИТЬ ЗАПИСЬ
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Floating dock scroll effect
-        window.addEventListener('scroll', function() {
-            const floatingDock = document.getElementById('floatingDock');
-            if (window.scrollY > 100) {
-                floatingDock.classList.add('visible');
-            } else {
-                floatingDock.classList.remove('visible');
-            }
-        });
-        
-        // Test drive popup functionality
-        document.getElementById('testDriveBtn').addEventListener('click', function() {
-            document.getElementById('testDrivePopup').classList.remove('hidden');
-        });
-        
-        document.getElementById('closePopup').addEventListener('click', function() {
-            document.getElementById('testDrivePopup').classList.add('hidden');
-        });
-        
-        // Close popup when clicking outside
-        document.getElementById('testDrivePopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.add('hidden');
-            }
-        });
-        
-        // Form submission
-        document.getElementById('testDriveForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Заявка отправлена! Наш менеджер свяжется с вами в ближайшее время.');
-            document.getElementById('testDrivePopup').classList.add('hidden');
-        });
-        
-        // Burger menu toggle for mobile (if needed in future)
-        function toggleMobileMenu() {
-            // Implementation for mobile menu
-        }
-    </script>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
