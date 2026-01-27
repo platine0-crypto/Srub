@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="ru" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>NORD-LINE | Заводские резиденции бизнес-класса</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        /* Значения по умолчанию */
+        --visual-correction-mobile: 0.75;
+        --mobile-design-width: 375;
+        --desktop-design-width: 1920;
+        --base-font-size: 16;
+
+        /* ДТ формула: ЧИСТАЯ (БЕЗ visual-correction), чтобы не уменьшать контейнеры */
+        font-size: calc(100vw / var(--desktop-design-width) * var(--base-font-size));
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          /* Моб формула: с учетом коррекции для плотности мобильных экранов */
+          font-size: calc(100vw / var(--mobile-design-width) * var(--base-font-size) * var(--visual-correction-mobile));
+        }
+      }
+
+      * { 
+        font-family: 'Montserrat', sans-serif !important; 
+        box-sizing: border-box;
+      }
+      
+      body {
+        background-color: #0B1221;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        text-size-adjust: none;
+      }
+
+      .gold-gradient {
+          background: linear-gradient(90deg, 
+              #8B6914 0%, 
+              #F9E076 25%, 
+              #D4AF37 40%, 
+              #FFFFFF 50%, 
+              #B8860B 70%, 
+              #8B6914 98%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .nav-link { position: relative; }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -0.25rem;
+        left: 0;
+        width: 0;
+        height: 0.0625rem;
+        background: #C5A059;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after { width: 100%; }
+
+      ::-webkit-scrollbar { width: 0.375rem; }
+      ::-webkit-scrollbar-track { background: #0B1221; }
+      ::-webkit-scrollbar-thumb {
+        background: #C5A059;
+        border-radius: 0.1875rem;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "url": "https://esm.sh/url@^0.11.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
