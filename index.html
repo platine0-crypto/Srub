@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORD-LINE - Ваш личный курорт бизнес-класса</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Hero Background Styles -->
+    <style>
+        .bg-mobile-hero {
+            background-image: url('images/hero/bg-hero-mobile.webp');
+        }
+        
+        @media (min-width: 768px) {
+            .bg-desktop-hero {
+                background-image: url('images/hero/bg-hero-desktop.webp');
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0B1221] text-white font-sans">
+    <!-- Header -->
+    <header x-data="{ isOpen: false }" class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-gradient-to-r from-[#E06D44] to-[#FFB347] rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-home text-white"></i>
+                </div>
+                <h1 class="text-xl md:text-2xl font-bold">NORD-LINE</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#spa" class="hover:text-[#FFB347] transition-colors">SPA-Резиденции</a>
+                <a href="#usadby" class="hover:text-[#FFB347] transition-colors">Усадьбы</a>
+                <a href="#technologies" class="hover:text-[#FFB347] transition-colors">Технологии</a>
+                <a href="#contacts" class="hover:text-[#FFB347] transition-colors">Контакты</a>
+            </nav>
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+73452288199" class="text-lg font-medium">+7 (3452) 288-199</a>
+                <a href="#" class="text-2xl hover:text-[#FFB347] transition-colors">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+            
+            <button @click="isOpen = !isOpen" class="md:hidden text-white focus:outline-none">
+                <i :class="isOpen ? 'fas fa-times' : 'fas fa-bars'" class="text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="isOpen" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform translate-y-[-100%]"
+             x-transition:enter-end="opacity-100 transform translate-y-0"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 transform translate-y-0"
+             x-transition:leave-end="opacity-0 transform translate-y-[-100%]"
+             class="md:hidden bg-[#0B1221]/90 backdrop-blur-md absolute top-full left-0 right-0 p-4 border-t border-gray-700">
+            <div class="flex flex-col space-y-4 py-4">
+                <a href="#spa" @click="isOpen = false" class="py-2 hover:text-[#FFB347] transition-colors">SPA-Резиденции</a>
+                <a href="#usadby" @click="isOpen = false" class="py-2 hover:text-[#FFB347] transition-colors">Усадьбы</a>
+                <a href="#technologies" @click="isOpen = false" class="py-2 hover:text-[#FFB347] transition-colors">Технологии</a>
+                <a href="#contacts" @click="isOpen = false" class="py-2 hover:text-[#FFB347] transition-colors">Контакты</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bottom Sticky Bar (Mobile) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-[#0B1221]/90 backdrop-blur-md border-t border-gray-700 md:hidden z-50">
+        <div class="grid grid-cols-3 divide-x divide-gray-700">
+            <a href="tel:+73452288199" class="flex flex-col items-center justify-center py-3 text-sm">
+                <i class="fas fa-phone-alt text-xl mb-1"></i>
+                <span>Звонок</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center py-3 text-sm">
+                <i class="fab fa-telegram text-xl mb-1"></i>
+                <span>TG</span>
+            </a>
+            <a href="#quiz" class="flex flex-col items-center justify-center py-3 text-sm">
+                <i class="fas fa-heart text-xl mb-1 text-[#FFB347]"></i>
+                <span>ЗАПИСАТЬСЯ</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-[#0B1221]/90 z-10"></div>
+        <div class="absolute inset-0 bg-mobile-hero md:bg-desktop-hero bg-cover bg-center z-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-20 text-center" data-aos="fade-up">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                ВАШ ЛИЧНЫЙ КУРОРТ <span class="text-[#FFB347]">БИЗНЕС-КЛАССА</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+                Заводские SPA-резиденции и Усадьбы серии NORD-LINE. Капитальная надежность клееного бруса. Сборка за 60 дней.
+            </p>
+            <a href="#quiz" class="inline-block bg-[#E06D44] hover:bg-[#c85e38] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shimmer-button">
+                ЗАПИСАТЬСЯ НА ТЕСТ-ДРАЙВ
+            </a>
+            <p class="text-gray-300 mt-4">Увидите качество, недоступное на фото</p>
+            
+            <div class="flex flex-wrap justify-center gap-6 mt-12">
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-check text-[#FFB347] text-xl mr-2"></i>
+                    <span class="font-medium">11 лет опыта</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-gavel text-[#FFB347] text-xl mr-2"></i>
+                    <span class="font-medium">0 судов</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home text-[#FFB347] text-xl mr-2"></i>
+                    <span class="font-medium">1000+ объектов</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Block -->
+    <section class="py-20 bg-[#0F172A]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                ПОЧЕМУ НАМ ДОВЕРЯЮТ СТРОИТЕЛЬСТВО РОДОВОГО ГНЕЗДА
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-[#FFB347] mb-3">11 ЛЕТ И 0 СУДОВ</h3>
+                    <p class="text-gray-200">Проверьте нас в любой базе. Мы местные, дорожим именем.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-[#FFB347] mb-3">ЦЕНА — ЗАКОН</h3>
+                    <p class="text-gray-200">Цена фиксируется в договоре. Кейс 2021 года: достроили в минус, но не подняли цену.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-[#FFB347] mb-3">БЕЗОПАСНАЯ ОПЛАТА</h3>
+                    <p class="text-gray-200">Поэтапно 70/30. Фундамент → Стены → Кровля.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold text-[#FFB347] mb-3">ЗАВОДСКАЯ ТОЧНОСТЬ</h3>
+                    <p class="text-gray-200">ЧПУ станки, допуск 0.5мм. Исключен человеческий фактор.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-bold text-[#FFB347] mb-3">СКОРОСТЬ 60 ДНЕЙ</h3>
+                    <p class="text-gray-200">Теплый контур за 2 месяца. Выигрываете целый сезон жизни.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Preview -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                КОЛЛЕКЦИЯ NORD-LINE
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 bg-gradient-to-br from-orange-900 to-amber-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600566752355-35792bedcfe3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">SPA-РЕЗИДЕНЦИИ</h3>
+                        <p class="text-gray-300 mb-4">Жилые дома-бани. Идеальный старт.</p>
+                        <p class="text-[#FFB347] font-semibold">от ... ₽</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 bg-gradient-to-br from-blue-900 to-indigo-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">УСАДЬБЫ NORD-LINE</h3>
+                        <p class="text-gray-300 mb-4">Статус, который виден сразу.</p>
+                        <p class="text-[#FFB347] font-semibold">от ... ₽</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-64 bg-gradient-to-br from-green-900 to-emerald-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">LOUNGE-ЗОНЫ</h3>
+                        <p class="text-gray-300 mb-4">Гриль-домики и павильоны.</p>
+                        <p class="text-[#FFB347] font-semibold">от ... ₽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-20 bg-[#0F172A]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                ЧЕСТНОЕ СРАВНЕНИЕ ТЕХНОЛОГИЙ
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-600 rounded-lg overflow-hidden">
+                    <thead>
+                        <tr class="bg-white/10">
+                            <th class="border border-gray-600 p-4 text-left">Критерий</th>
+                            <th class="border border-gray-600 p-4 text-center bg-green-500/20 text-green-300">NORD-LINE</th>
+                            <th class="border border-gray-600 p-4 text-center bg-red-500/20 text-red-300">Камень</th>
+                            <th class="border border-gray-600 p-4 text-center bg-yellow-500/20 text-yellow-300">Каркас</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-600 p-4 font-medium">Риск человеческого фактора</td>
+                            <td class="border border-gray-600 p-4 text-center text-green-300">Нулевой, робот</td>
+                            <td class="border border-gray-600 p-4 text-center text-red-300">Критический</td>
+                            <td class="border border-gray-600 p-4 text-center text-yellow-300">Высокий</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-600 p-4 font-medium">Зимовка без отопления</td>
+                            <td class="border border-gray-600 p-4 text-center text-green-300">Безопасно</td>
+                            <td class="border border-gray-600 p-4 text-center text-red-300">Трещины</td>
+                            <td class="border border-gray-600 p-4 text-center text-yellow-300">Возможны проблемы</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-600 p-4 font-medium">Скорость прогрева</td>
+                            <td class="border border-gray-600 p-4 text-center text-green-300">2 часа</td>
+                            <td class="border border-gray-600 p-4 text-center text-red-300">2 суток</td>
+                            <td class="border border-gray-600 p-4 text-center text-yellow-300">1 час</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-600 p-4 font-medium">Срок службы</td>
+                            <td class="border border-gray-600 p-4 text-center text-green-300">100 лет</td>
+                            <td class="border border-gray-600 p-4 text-center text-red-300">150+ лет</td>
+                            <td class="border border-gray-600 p-4 text-center text-yellow-300">15 лет</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <div class="h-96 bg-gradient-to-br from-stone-800 to-stone-900 rounded-xl mb-8 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover opacity-80"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">ТЕСТ НА МОНОЛИТНОСТЬ</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Попробуйте просунуть купюру в стык. Экономия на конопатке до 150 000₽.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tripwire & Quiz -->
+    <section class="py-20 bg-[#0F172A]">
+        <div class="container mx-auto px-4">
+            <!-- Tripwire -->
+            <div class="bg-gradient-to-r from-[#E06D44] to-[#FFB347] rounded-xl p-8 mb-16 text-center" data-aos="fade-up">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Пакет Безопасного Старта за 3000 ₽</h3>
+                <p class="text-white/90">Возвращается при заключении договора</p>
+            </div>
+            
+            <!-- Quiz -->
+            <div x-data="quizData" class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                    ПОДБЕРИТЕ ПРОЕКТ И ПОЛУЧИТЕ ПАМЯТКУ '7 ЛОВУШЕК СТРОЙКИ'
+                </h2>
+                
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                    <div x-show="step === 1" class="space-y-6">
+                        <h3 class="text-xl font-bold mb-4">Какой тип объекта вас интересует?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button @click="selectedType = 'spa'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                SPA-Резиденция
+                            </button>
+                            <button @click="selectedType = 'usadba'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                Усадьба
+                            </button>
+                            <button @click="selectedType = 'lounge'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                Lounge-зона
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div x-show="step === 2" class="space-y-6">
+                        <h3 class="text-xl font-bold mb-4">Каков ваш бюджет?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button @click="selectedBudget = 'low'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                До 2 млн ₽
+                            </button>
+                            <button @click="selectedBudget = 'medium'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                2-5 млн ₽
+                            </button>
+                            <button @click="selectedBudget = 'high'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                Более 5 млн ₽
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div x-show="step === 3" class="space-y-6">
+                        <h3 class="text-xl font-bold mb-4">Когда планируете начать строительство?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button @click="selectedTiming = 'soon'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                В этом году
+                            </button>
+                            <button @click="selectedTiming = 'next'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                В следующем году
+                            </button>
+                            <button @click="selectedTiming = 'planning'; nextStep()" class="p-4 border border-gray-600 rounded-lg hover:border-[#FFB347] transition-colors">
+                                Пока планирую
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div x-show="step === 4" class="space-y-6">
+                        <h3 class="text-xl font-bold mb-4">Оставьте контактные данные</h3>
+                        <form @submit.prevent="submitQuiz" class="space-y-4">
+                            <input type="text" placeholder="Ваше имя" x-model="name" required class="w-full p-3 rounded-lg bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-[#FFB347]">
+                            <input type="tel" placeholder="Телефон" x-model="phone" required class="w-full p-3 rounded-lg bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-[#FFB347]">
+                            <input type="email" placeholder="Email" x-model="email" required class="w-full p-3 rounded-lg bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-[#FFB347]">
+                            
+                            <button type="submit" class="w-full bg-[#E06D44] hover:bg-[#c85e38] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                                Получить памятку и подобранный проект
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div x-show="submitted" class="text-center py-8">
+                        <h3 class="text-2xl font-bold text-[#FFB347] mb-4">Спасибо за заявку!</h3>
+                        <p class="text-gray-300">Наш менеджер свяжется с вами в ближайшее время.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-[#0B1221] border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Контакты</h4>
+                    <p class="text-gray-300">Ринат [Фамилия], Генеральный директор</p>
+                    <p class="text-gray-300 mt-2">+7 (3452) 288-199</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Социальные сети</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl text-gray-300 hover:text-[#FFB347] transition-colors">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="text-2xl text-gray-300 hover:text-[#FFB347] transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Юридическая информация</h4>
+                    <p class="text-gray-300">ООО Срубы для всех</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 NORD-LINE. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
