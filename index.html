@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru" style="scroll-behavior: smooth;">
 <head>
@@ -75,68 +74,75 @@
           -webkit-text-fill-color: transparent;
       }
 
+      /* ГЛОБАЛЬНЫЕ СТИЛИ ПРЕМИУМ-КНОПОК NORD-LINE (ТОЛЬКО ВИЗУАЛ) */
       .btn-premium-base {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         border-radius: 9999px;
         font-weight: 900;
         text-transform: uppercase;
-        letter-spacing: 0.02em; 
+        letter-spacing: 0.05em; 
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         position: relative;
         overflow: hidden;
         text-decoration: none;
         cursor: pointer;
-        padding: 1.1rem 2.5rem;
+        border: none;
+        outline: none;
+        white-space: nowrap;
       }
 
+      /* Внутренняя фаска */
       .btn-premium-base::before {
         content: "";
         position: absolute;
         inset: 0;
         border-radius: inherit;
         padding: 1.5px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 45%);
+        background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 40%);
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
         mask-composite: exclude;
         pointer-events: none;
-        z-index: 2;
+        z-index: 5;
+      }
+
+      @keyframes shimmer-premium {
+        0% { transform: translateX(-150%) skewX(-25deg); }
+        25%, 100% { transform: translateX(250%) skewX(-25deg); }
+      }
+
+      .btn-premium-accent {
+        background: linear-gradient(175deg, #8B3A15 0%, #F8B57B 25%, #B05024 50%, #F8B57B 85%, #C1531E 100%);
+        color: #FFFFFF;
+        box-shadow: 0 12px 35px rgba(139, 58, 21, 0.25);
+      }
+      .btn-premium-accent::after {
+        content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+        animation: shimmer-premium 6s infinite ease-in-out;
+        pointer-events: none;
       }
 
       .btn-premium-gold {
         background: linear-gradient(180deg, #D4A77A 0%, #A06E4E 100%);
-        color: white;
-        box-shadow: 0 12px 35px rgba(160, 110, 78, 0.25);
-        border: 1px solid rgba(160, 110, 78, 0.2);
-      }
-      .btn-premium-gold:hover {
-        filter: brightness(1.08);
-        transform: translateY(-2px);
-        box-shadow: 0 15px 45px rgba(160, 110, 78, 0.4);
+        color: #FFFFFF;
+        box-shadow: 0 12px 30px rgba(160, 110, 78, 0.2);
       }
 
       .btn-premium-dark {
-        background: linear-gradient(180deg, #1C2735 0%, #0B1221 100%);
+        background: #111927;
         color: #F8B57B;
-        border: 1.5px solid #D4A77A;
-        box-shadow: 0 12px 35px rgba(212, 167, 122, 0.15);
-      }
-      .btn-premium-dark:hover {
-        filter: brightness(1.2);
-        transform: translateY(-2px);
-        box-shadow: 0 15px 45px rgba(212, 167, 122, 0.25);
+        border: 1.5px solid #D4A77A !important;
       }
 
       .btn-premium-subtext {
-        margin-top: 1rem;
-        font-size: 0.85rem;
+        margin-top: 0.85rem;
+        font-size: 0.8125rem;
         text-align: center;
-        color: #0B1221;
-        font-weight: 700;
+        font-weight: 900;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        line-height: 1.4;
+        letter-spacing: 0.08em;
       }
 
       .nav-link { position: relative; }
@@ -174,7 +180,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-JuuGNQZk.js"></script>
+  <script type="module" crossorigin src="./assets/index-BvOzrm_D.js"></script>
 </head>
 <body>
     <div id="root"></div>
