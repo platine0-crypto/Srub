@@ -157,6 +157,24 @@
         border: 1.5px solid #D4A77A !important;
       }
 
+      /* КНОПКИ ПОД ИНФОПАНЕЛЬЮ: ПРОЗРАЧНЫЕ С ЗОЛОТЫМ КОНТУРОМ */
+      .btn-premium-transparent-gold {
+        background: transparent !important;
+        border: 1px solid #C5A059 !important;
+        box-shadow: none !important;
+        transition: border-width 0.05s ease-in-out !important;
+      }
+      
+      .btn-premium-transparent-gold::before,
+      .btn-premium-transparent-gold::after {
+        display: none !important; /* Убираем фаски и шиммер */
+      }
+
+      .btn-premium-transparent-gold:hover {
+        border-width: 2px !important;
+        transform: none !important; /* Убираем смещение при наведении */
+      }
+
       .btn-premium-subtext {
         margin-top: 0.85rem;
         font-size: 0.8125rem;
@@ -202,8 +220,8 @@
 </script>
   <script type="module" crossorigin src="./assets/vendor-react-j2mp3VYR.js"></script>
   <script type="module" crossorigin src="./assets/vendor-motion-ChfWCO4p.js"></script>
-  <script type="module" crossorigin src="./assets/index-DrUnDVi7.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-AT42LDVK.css">
+  <script type="module" crossorigin src="./assets/index-COEBknWt.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DL8QfX9p.css">
 </head>
 <body>
     <div id="root"></div>
