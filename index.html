@@ -134,9 +134,15 @@
       }
 
       .btn-premium-accent {
-        background: linear-gradient(175deg, #8B3A15 0%, #F8B57B 25%, #B05024 50%, #F8B57B 85%, #C1531E 100%);
+        background: linear-gradient(175deg, #8B3A15 0%, #D0884A 25%, #B05024 50%, #D0884A 85%, #C1531E 100%);
         color: #FFFFFF;
         box-shadow: 0 12px 35px rgba(139, 58, 21, 0.25);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .btn-premium-accent:hover {
+        transform: scale(1.01) translateY(-1.5px);
+        filter: brightness(1.07);
+        box-shadow: 0 15px 45px rgba(139, 58, 21, 0.3);
       }
       .btn-premium-accent::after {
         content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%;
@@ -159,20 +165,27 @@
 
       /* КНОПКИ ПОД ИНФОПАНЕЛЬЮ: ПРОЗРАЧНЫЕ С ЗОЛОТЫМ КОНТУРОМ */
       .btn-premium-transparent-gold {
-        background: transparent !important;
-        border: 1px solid #C5A059 !important;
-        box-shadow: none !important;
-        transition: border-width 0.05s ease-in-out !important;
+        background: transparent;
+        border: 1px solid #C5A059;
+        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.05);
       }
       
-      .btn-premium-transparent-gold::before,
+      .btn-premium-transparent-gold::before {
+        opacity: 0.4; /* Смягчаем фаску для прозрачной кнопки */
+      }
+
       .btn-premium-transparent-gold::after {
-        display: none !important; /* Убираем фаски и шиммер */
+        content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        animation: shimmer-premium 8s infinite ease-in-out;
+        pointer-events: none;
       }
 
       .btn-premium-transparent-gold:hover {
-        border-width: 2px !important;
-        transform: none !important; /* Убираем смещение при наведении */
+        background: rgba(197, 160, 89, 0.05);
+        transform: scale(1.015) translateY(-1px);
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15);
+        border-color: #D4A77A;
       }
 
       .btn-premium-subtext {
@@ -220,8 +233,8 @@
 </script>
   <script type="module" crossorigin src="./assets/vendor-react-j2mp3VYR.js"></script>
   <script type="module" crossorigin src="./assets/vendor-motion-ChfWCO4p.js"></script>
-  <script type="module" crossorigin src="./assets/index-CB-LQiPd.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DoTX5Bx8.css">
+  <script type="module" crossorigin src="./assets/index-B7xJoU5q.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BngmPdpH.css">
 </head>
 <body>
     <div id="root"></div>
