@@ -1,0 +1,1 @@
+import{g as s,R as n}from"./index-CEl-tLnl.js";const r=e=>`${e/s.layout.baseFontSize}rem`,a=()=>{const[e,o]=n.useState(window.innerWidth<=768);return n.useEffect(()=>{const t=()=>o(window.innerWidth<=768);return window.addEventListener("resize",t),()=>window.removeEventListener("resize",t)},[]),e?"mobile":"desktop"};export{r as t,a as u};
