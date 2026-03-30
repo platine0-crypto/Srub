@@ -2,10 +2,13 @@
 <html lang="ru" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
+    <link rel="preload" href="./assets/montserrat-v31-cyrillic-800-CzyHp0Qr.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/montserrat-v31-cyrillic-600-cdzLiXYp.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Серия СИБИРЬ | Заводские резиденции бизнес-класса</title>
     
-    <!-- SMART PRELOAD: Only for Home page and with Media Queries -->
+    <!-- SMART PRELOAD: Only for Home page and with Media Queries. 
+         КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО УДАЛЯТЬ ИЛИ ИЗМЕНЯТЬ ЭТОТ БЛОК БЕЗ ПРЯМОЙ КОМАНДЫ. КАНОНИЗИРОВАНО. -->
     <script>
       (function() {
         const path = window.location.pathname;
@@ -14,9 +17,12 @@
         const isHome = path === '/' || path === '/index.html' || !hash || hash === '#' || hash === '';
         
         if (isHome) {
+          const useExternalAssets = true;
+          const ASSET_PREFIX = useExternalAssets ? "https://platine0-crypto.github.io/Srub" : "/Srub";
+          
           const assets = [
-            { href: 'https://platine0-crypto.github.io/Srub/images/hero/bg-hero-desktop.webp', media: '(min-width: 769px)' },
-            { href: 'https://platine0-crypto.github.io/Srub/images/hero/bg-hero-mobile.webp', media: '(max-width: 768px)' }
+            { href: `${ASSET_PREFIX}/images/hero/bg-hero-desktop.webp`, media: '(min-width: 769px)' },
+            { href: `${ASSET_PREFIX}/images/hero/bg-hero-mobile.webp`, media: '(max-width: 768px)' }
           ];
 
           assets.forEach(asset => {
@@ -32,9 +38,22 @@
       })();
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+        font-family: 'Montserrat';
+        font-weight: 600;
+        font-display: swap;
+        src: url('./assets/montserrat-v31-cyrillic-600-cdzLiXYp.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-weight: 800;
+        font-display: swap;
+        src: url('./assets/montserrat-v31-cyrillic-800-CzyHp0Qr.woff2') format('woff2');
+      }
+    </style>
+
+    <link rel="stylesheet" href="data:text/css;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0JzsKICBmb250LXdlaWdodDogNDAwOwogIGZvbnQtZGlzcGxheTogc3dhcDsKICBzcmM6IHVybCgnL2ZvbnRzL21vbnRzZXJyYXQtdjMxLWN5cmlsbGljLXJlZ3VsYXIud29mZjInKSBmb3JtYXQoJ3dvZmYyJyk7Cn0KQGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0JzsKICBmb250LXdlaWdodDogNTAwOwogIGZvbnQtZGlzcGxheTogc3dhcDsKICBzcmM6IHVybCgnL2ZvbnRzL21vbnRzZXJyYXQtdjMxLWN5cmlsbGljLTUwMC53b2ZmMicpIGZvcm1hdCgnd29mZjInKTsKfQpAZm9udC1mYWNlIHsKICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnOwogIGZvbnQtd2VpZ2h0OiA3MDA7CiAgZm9udC1kaXNwbGF5OiBzd2FwOwogIHNyYzogdXJsKCcvZm9udHMvbW9udHNlcnJhdC12MzEtY3lyaWxsaWMtNzAwLndvZmYyJykgZm9ybWF0KCd3b2ZmMicpOwp9CkBmb250LWZhY2UgewogIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCc7CiAgZm9udC13ZWlnaHQ6IDkwMDsKICBmb250LWRpc3BsYXk6IHN3YXA7CiAgc3JjOiB1cmwoJy9mb250cy9tb250c2VycmF0LXYzMS1jeXJpbGxpYy05MDAud29mZjInKSBmb3JtYXQoJ3dvZmYyJyk7Cn0K" media="print" onload="this.media='all'">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
       :root {
@@ -255,8 +274,8 @@
 }
 </script>
   <script type="module" crossorigin src="./assets/vendor-react-j2mp3VYR.js"></script>
-  <script type="module" crossorigin src="./assets/index-CEl-tLnl.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CdJToEpd.css">
+  <script type="module" crossorigin src="./assets/index-DJw3U3CJ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-IyGiUEGn.css">
 </head>
 <body>
     <div id="root"></div>
