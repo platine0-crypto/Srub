@@ -20,6 +20,7 @@
         
         if (isHome) {
           const useExternalAssets = true;
+          // ВНИМАНИЕ: Дублирует general.ts для экстремального Preload
           const ASSET_PREFIX = useExternalAssets ? "https://platine0-crypto.github.io/Srub" : "/Srub";
           
           const assets = [
@@ -36,36 +37,6 @@
             link.setAttribute('fetchpriority', 'high');
             document.head.appendChild(link);
           });
-        }
-      })();
-    </script>
-
-    <!-- SMART PRELOAD CHUNKS: Preload JS for internal pages based on hash. 
-         КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО УДАЛЯТЬ ИЛИ ИЗМЕНЯТЬ ЭТОТ БЛОК БЕЗ ПРЯМОЙ КОМАНДЫ. КАНОНИЗИРОВАНО. -->
-    <script>
-      (function() {
-        const hash = window.location.hash;
-        if (hash && hash !== '#' && hash !== '#home') {
-          const routes = {
-            '#guide-part1': '/components/GuidePart1.tsx',
-            '#guide-part2': '/components/GuidePart2.tsx',
-            '#katalog': '/components/katalog/KatalogPage.tsx',
-            '#tehnologii': '/components/TechnologyPage.tsx',
-            '#about': '/components/AboutPage.tsx',
-            '#finance': '/components/FinancePage.tsx',
-            '#test-drive': '/components/ExcursionsPage.tsx',
-            '#privacy': '/components/PrivacyPolicy.tsx'
-          };
-          
-          const baseHash = hash.split('/')[0];
-          const componentPath = routes[baseHash];
-          
-          if (componentPath) {
-            const link = document.createElement('link');
-            link.rel = 'modulepreload';
-            link.href = componentPath;
-            document.head.appendChild(link);
-          }
         }
       })();
     </script>
@@ -293,23 +264,9 @@
         border-radius: 0.1875rem;
       }
     </style>
-
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "path": "https://esm.sh/path@^0.12.7",
-    "url": "https://esm.sh/url@^0.11.4",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
   <script type="module" crossorigin src="./assets/vendor-react-j2mp3VYR.js"></script>
-  <script type="module" crossorigin src="./assets/index-t-NYz-v-.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-B1JQCG2W.css">
+  <script type="module" crossorigin src="./assets/index-Cyh8TybP.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BRuN4pCa.css">
 </head>
 <body>
     <div id="root"></div>
