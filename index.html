@@ -17,16 +17,25 @@
         const hash = window.location.hash;
         // Проверяем, является ли страница главной (корень, index.html или отсутствие хеша)
         const isHome = path === '/' || path === '/index.html' || !hash || hash === '#' || hash === '';
+        const isFinance = hash === '#finance';
         
-        if (isHome) {
+        if (isHome || isFinance) {
           const useExternalAssets = true;
           // ВНИМАНИЕ: Дублирует general.ts для экстремального Preload
           const ASSET_PREFIX = useExternalAssets ? "https://platine0-crypto.github.io/Srub" : "/Srub";
           
-          const assets = [
-            { href: `${ASSET_PREFIX}/images/hero/bg-hero-desktop.webp`, media: '(min-width: 769px)' },
-            { href: `${ASSET_PREFIX}/images/hero/bg-hero-mobile.webp`, media: '(max-width: 768px)' }
-          ];
+          let assets = [];
+          if (isHome) {
+            assets = [
+              { href: `${ASSET_PREFIX}/images/hero/bg-hero-desktop.webp`, media: '(min-width: 769px)' },
+              { href: `${ASSET_PREFIX}/images/hero/bg-hero-mobile.webp`, media: '(max-width: 768px)' }
+            ];
+          } else if (isFinance) {
+            assets = [
+              { href: `${ASSET_PREFIX}/images/finance/fon-hero-1408x736.webp`, media: '(min-width: 769px)' },
+              { href: `${ASSET_PREFIX}/images/finance/mob-fon-hero-375x239.webp`, media: '(max-width: 768px)' }
+            ];
+          }
 
           assets.forEach(asset => {
             const link = document.createElement('link');
@@ -265,8 +274,8 @@
       }
     </style>
   <script type="module" crossorigin src="./assets/vendor-react-j2mp3VYR.js"></script>
-  <script type="module" crossorigin src="./assets/index-Cyh8TybP.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BRuN4pCa.css">
+  <script type="module" crossorigin src="./assets/index-DAAp4TAB.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BHu6rGCP.css">
 </head>
 <body>
     <div id="root"></div>
