@@ -9,11 +9,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .splash-screen {
+        position: fixed;
+        inset: 0;
+        background-color: #0B1221;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      .splash-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.3));
+      }
+      .splash-text {
+        color: #FFFFFF;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    </style>
   <script type="module" crossorigin src="../assets/vendor-react-j2mp3VYR.js"></script>
-  <script type="module" crossorigin src="../assets/index-DAAp4TAB.js"></script>
-  <link rel="stylesheet" crossorigin href="../assets/index-BHu6rGCP.css">
+  <script type="module" crossorigin src="../assets/index-3h3VUbY2.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/index-CSm78RrW.css">
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div class="splash-screen">
+            <svg class="splash-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5L95 27.5V72.5L50 95L5 72.5V27.5L50 5Z" stroke="#C5A059" stroke-width="2"/>
+                <path d="M50 20L80 35V65L50 80L20 65V35L50 20Z" fill="#C5A059" fill-opacity="0.2" stroke="#C5A059" stroke-width="1"/>
+                <path d="M50 35L65 42.5V57.5L50 65L35 57.5V42.5L50 35Z" fill="#C5A059"/>
+            </svg>
+            <div class="splash-text">СДВ ХОЛДИНГ</div>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,17 +3,94 @@
 <html lang="ru" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NORD-LINE | О компании</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONT LOADING: Montserrat 600 & 800 Preload. -->
+    <link rel="preload" href="../assets/montserrat-v31-cyrillic-800-CzyHp0Qr.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/montserrat-v31-cyrillic-600-cdzLiXYp.woff2" as="font" type="font/woff2" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>О компании СДВ Холдинг | Строительство домов из бруса в Тюмени</title>
+    <meta name="description" content="Узнайте больше о нашей компании, ценностях и подходе к строительству премиальных домов из массива и клееного бруса.">
+    
+    <style>
+      .splash-screen {
+        position: fixed;
+        inset: 0;
+        background-color: #0B1221;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      .splash-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.3));
+      }
+      .splash-text {
+        color: #FFFFFF;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    </style>
+    <style>
+      @font-face {
+        font-family: 'Montserrat';
+        font-weight: 600;
+        font-display: swap;
+        src: url('../assets/montserrat-v31-cyrillic-600-cdzLiXYp.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-weight: 800;
+        font-display: swap;
+        src: url('../assets/montserrat-v31-cyrillic-800-CzyHp0Qr.woff2') format('woff2');
+      }
+    </style>
+
+    <link rel="stylesheet" href="data:text/css;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0JzsKICBmb250LXdlaWdodDogNDAwOwogIGZvbnQtZGlzcGxheTogc3dhcDsKICBzcmM6IHVybCgnL2ZvbnRzL21vbnRzZXJyYXQtdjMxLWN5cmlsbGljLXJlZ3VsYXIud29mZjInKSBmb3JtYXQoJ3dvZmYyJyk7Cn0KQGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0JzsKICBmb250LXdlaWdodDogNTAwOwogIGZvbnQtZGlzcGxheTogc3dhcDsKICBzcmM6IHVybCgnL2ZvbnRzL21vbnRzZXJyYXQtdjMxLWN5cmlsbGljLTUwMC53b2ZmMicpIGZvcm1hdCgnd29mZjInKTsKfQpAZm9udC1mYWNlIHsKICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnOwogIGZvbnQtd2VpZ2h0OiA3MDA7CiAgZm9udC1kaXNwbGF5OiBzd2FwOwogIHNyYzogdXJsKCcvZm9udHMvbW9udHNlcnJhdC12MzEtY3lyaWxsaWMtNzAwLndvZmYyJykgZm9ybWF0KCd3b2ZmMicpOwp9CkBmb250LWZhY2UgewogIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCc7CiAgZm9udC13ZWlnaHQ6IDkwMDsKICBmb250LWRpc3BsYXk6IHN3YXA7CiAgc3JjOiB1cmwoJy9mb250cy9tb250c2VycmF0LXYzMS1jeXJpbGxpYy05MDAud29mZjInKSBmb3JtYXQoJ3dvZmYyJyk7Cn0K" media="print" onload="this.media='all'">
+    <style>
+      :root {
+        --visual-correction-mobile: 0.75;
+        --mobile-design-width: 375;
+        --desktop-design-width: 1920;
+        --base-font-size: 16;
+        font-size: calc(100vw / var(--desktop-design-width) * var(--base-font-size));
+      }
+      @media (max-width: 768px) {
+        :root {
+          font-size: calc(100vw / var(--mobile-design-width) * var(--base-font-size) * var(--visual-correction-mobile));
+        }
+      }
+      * { 
+        font-family: 'Montserrat', sans-serif !important; 
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #0B1221;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
   <script type="module" crossorigin src="../assets/vendor-react-j2mp3VYR.js"></script>
-  <script type="module" crossorigin src="../assets/index-DAAp4TAB.js"></script>
-  <link rel="stylesheet" crossorigin href="../assets/index-BHu6rGCP.css">
+  <script type="module" crossorigin src="../assets/index-3h3VUbY2.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/index-CSm78RrW.css">
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div class="splash-screen">
+            <svg class="splash-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5L95 27.5V72.5L50 95L5 72.5V27.5L50 5Z" stroke="#C5A059" stroke-width="2"/>
+                <path d="M50 20L80 35V65L50 80L20 65V35L50 20Z" fill="#C5A059" fill-opacity="0.2" stroke="#C5A059" stroke-width="1"/>
+                <path d="M50 35L65 42.5V57.5L50 65L35 57.5V42.5L50 35Z" fill="#C5A059"/>
+            </svg>
+            <div class="splash-text">СДВ ХОЛДИНГ</div>
+        </div>
+    </div>
 </body>
 </html>
