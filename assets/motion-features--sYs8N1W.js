@@ -1,0 +1,1 @@
+import{g as t,b as o,c as i}from"./gestures-Djwwpn2d.js";import"./main-CbmR5mr3.js";import"./vendor-react-j2mp3VYR.js";import"./create-proxy-Dav7ihtp.js";import"./vendor-motion-DLjbE5aP.js";const s={renderer:i,...o,...t};export{s as default};
